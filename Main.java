@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -12,9 +10,8 @@ public class Main {
 		animalMap.put("cat", "猫");
 		animalMap.put("bird", "鳥");
 		animalMap.put("cow", "牛");
-		for (Iterator<String> itr = animalMap.keySet().iterator(); itr.hasNext();) {
-			String key = itr.next();
-			System.out.println(key + ":" + animalMap.get(key));
+		for (Map.Entry<String, String> entry : animalMap.entrySet()) {
+			System.out.println(entry.getKey() + ":" + entry.getValue());
 		}
 		//	猫をマンチカンに変更
 		String name = animalMap.put("cat", "マンチカン");
@@ -23,11 +20,7 @@ public class Main {
 
 		System.out.println("-------------------");
 
-		List<String> animalNameList = new ArrayList<String>();
-		animalNameList.add("ポチ");
-		animalNameList.add("タマ");
-		animalNameList.add("ロッキー");
-		animalNameList.add("ジョセフィーヌ");
+		List<String> animalNameList = List.of("ポチ", "タマ", "ロッキー", "ジョセフィーヌ");
 
 		System.out.println(animalNameList.size());
 		System.out.println("ロッキーのindexは" + animalNameList.indexOf("ロッキー") + "です。");
